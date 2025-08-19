@@ -74,13 +74,6 @@
             overflow: hidden;
             font-size: 12px;
         }
-        .image-art {
-            color: #00FF00;
-            line-height: 1;
-            margin: 10px 0;
-            white-space: pre;
-            text-align: center;
-        }
         .music-player {
             margin: 15px 0;
             padding: 10px;
@@ -114,7 +107,7 @@
             margin-top: 5px;
             font-size: 14px;
         }
-        .player-control极s {
+        .player-controls {
             text-align: center;
             margin-top: 10px;
         }
@@ -128,7 +121,7 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
-        ::-webkit-scrollbar-track {
+        ::-webkit极-scrollbar-track {
             background: #001100;
         }
         ::-webkit-scrollbar-thumb {
@@ -137,31 +130,13 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #00AA00;
         }
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        .time-art {
-            color: #00FF00;
-            line-height: 1;
-            margin: 10px 0;
-            white-space: pre;
-            text-align: center;
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
     <div id="console">
         <div id="ascii-container" class="ascii-art"></div>
-        <div id="init-message" class="response"></div>
-        <div id="history"></div>
+        <div id="init-message" class极="response"></div>
+        <极div id="history"></div>
         <div id="input-line">
             <span id="prompt">C:\&gt;</span>
             <input type="text" id="command-input" autofocus>
@@ -176,22 +151,22 @@
             "╚══██╔══╝██║  ██║██╔════╝    ",
             "   ██║   ███████║█████╗      ",
             "   ██║   ██╔══██║██╔══╝      ",
-            "   ██║   ██║  ██║███████╗    ",
+            "   ██║   ██极  ██║███████╗    ",
             "   ╚═╝   ╚═╝  ╚═╝╚══════╝    ",
             "                              ",
-            "██╗███╗   ██╗████████╗███████╗██████╗ ███╗   ██╗███████╗████████╗",
-            "██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██极╔════╝╚══██╔══╝",
+            "██╗███╗   ██╗████████╗███████╗██████╗ ███╗   ██╗███████极████████╗",
+            "██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██╔════╝╚══██╔══╝",
             "██║██╔██╗ ██║   ██║   █████╗  ██████╔╝██╔██╗ ██║█████╗     ██║   ",
             "██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗██║╚██╗██║██╔══╝     ██║   ",
-            "██║██║ ╚████║   ██║   ███████╗██║  ██║██║ ╚████极███████╗   ██║   ",
-            "╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════�极   ╚═╝   ",
+            "██║██║ ╚████║   ██║   ███████╗██║  ██║██║ ╚████║███████╗   ██║   ",
+            "╚═╝╚═极  ╚═══╝   ╚═极   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ",
             "                              ",
-            " ██████╗ ██████╗ ███╗   ██╗███████╗ ██████╗ ██║    极███████╗",
-            "██╔════╝██╔═══██╗████╗  ██║██╔════╝██╔═══██╗██║     ██╔════╝",
-            "██║     ██║   ██�极██╔██╗ ██║███████╗██║   ██║██║     █████╗  ",
-            "██║     ██║   ██║██║╚██╗██║╚════██║██║   ██║██║     ██╔══╝  ",
+            " ██████╗ ██████╗ ███╗   ██╗███████╗ ██████╗ ██║     ███████╗",
+            "██╔════╝██╔═══██╗████╗  ██║██╔════╝██╔═══██╗██║     ██╔════极",
+            "██║     ██║   ██║██╔██极 ██║███████╗██║   ██║██║     █████╗  ",
+            "██║     ██║   ██║██║╚██╗██║╚════██║██║   ██║██极     ██╔══╝  ",
             "╚██████╗╚██████╔╝██║ ╚████║███████║╚██████╔╝███████╗███████╗",
-            " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝"
+            " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝极══════╝ ╚═════╝ ╚══════╝╚══════╝"
         ];
 
         // Display ASCII art with loading animation
@@ -206,7 +181,6 @@
         let globalAudio = null;
         let isSoundPlayerActive = false;
         let soundPlayerElement = null;
-        let matrixInterval = null;
 
         function loadNextRow() {
             if (currentRow < asciiArt.length) {
@@ -232,11 +206,11 @@
             function showNextLine() {
                 if (currentLine < lines.length) {
                     const lineDiv = document.createElement('div');
-                    lineDiv.textContent = lines[current极e];
+                    lineDiv.textContent = lines[currentLine];
                     element.appendChild(lineDiv);
                     currentLine++;
                     consoleElement.scrollTo({
-                        top: console极.scrollHeight,
+                        top: consoleElement.scrollHeight,
                         behavior: 'smooth'
                     });
                     setTimeout(showNextLine, 10);
@@ -258,94 +232,6 @@
             return `${mins}:${secs.toString().padStart(2, '0')}`;
         }
         
-        // Matrix rain effect
-        function startMatrixRain() {
-            const chars = "01";
-            const matrixDiv = document.createElement('div');
-            matrixDiv.className = 'matrix-rain';
-            document.body.appendChild(matrixDiv);
-            
-            const columns = Math.floor(window.innerWidth / 20);
-            const drops = [];
-            
-            for (let i = 0; i < columns; i++) {
-                drops[i] = 1;
-            }
-            
-            matrixInterval = setInterval(() => {
-                const span = document.createElement('span');
-                span.style.position = 'absolute';
-                span.style.color = '#00FF00';
-                span.style.fontSize = '20px';
-                
-                for (let i = 0; i < drops.length; i++) {
-                    if (drops[i] * 20 > window.innerHeight && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    
-                    const char = chars[Math.floor(Math.random() * chars.length)];
-                    const text = document.createTextNode(char);
-                    span.appendChild(text);
-                    span.style.left = (i * 20) + 'px';
-                    span.style.top = (drops[i] * 20) + 'px';
-                    
-                    drops[i]++;
-                }
-                
-                matrixDiv.appendChild(span);
-                
-                // Remove old elements to prevent performance issues
-                if (matrixDiv.childNodes.length > 100) {
-                    matrixDiv.removeChild(matrixDiv.childNodes[0]);
-                }
-            }, 33);
-        }
-        
-        function stopMatrixRain() {
-            if (matrixInterval) {
-                clearInterval(matrixInterval);
-                matrixInterval = null;
-                const matrixDiv = document.querySelector('.matrix-rain');
-                if (matrixDiv) {
-                    matrixDiv.remove();
-                }
-            }
-        }
-        
-        // Function to convert time to ASCII art
-        function timeToAscii(timeStr) {
-            // Define the ASCII art for each digit
-            const digits = {
-                '0': ['██╗', '███║', '╚██║', ' ██║', ' ██║', ' ╚═╝'],
-                '1': [' ██╗', '███║', '╚██║', ' ██║', ' ██║', ' ╚═╝'],
-                '2': ['██████╗', '╚════██╗', ' █████╔╝', '██╔═══╝', '███████╗', '╚══════╝'],
-                '3': ['██████╗', '╚════██╗', ' █████╔╝', ' ╚═══██╗', '██████╔╝', '╚═════╝'],
-                '4': ['██╗  ██╗', '██║  ██║', '███████║', '╚════██║', '     ██║', '     ╚═╝'],
-                '5': ['███████╗', '██╔════╝', '███████╗', '╚════██║', '███████║', '╚══════╝'],
-                '6': [' ██████╗', '██╔════╝', '███████╗', '██╔═══██╗', '╚██████╔╝', ' ╚═════╝'],
-                '7': ['███████╗', '╚════██║', '    ██╔╝', '   ██╔╝', '   ██║', '   ╚═╝'],
-                '8': [' █████╗', '██╔══██╗', '╚█████╔╝', '██╔══██╗', '╚█████╔╝', ' ╚════╝'],
-                '9': [' █████╗', '██╔══██╗', '╚██████║', ' ╚═══██║', ' █████╔╝', ' ╚════╝'],
-                ':': ['   ', '██╗', '╚═╝', '██╗', '╚═╝', '   '],
-                'A': [' █████╗', '██╔══██╗', '███████║', '██╔══██║', '██║  ██║', '╚═╝  ╚═╝'],
-                'P': ['██████╗', '██╔══██╗', '██████╔╝', '██╔═══╝', '██║', '╚═╝'],
-                'M': ['███╗   ███╗', '████╗ ████║', '██╔████╔██║', '██║╚██╔╝██║', '██║ ╚═╝ ██║', '╚═╝     ╚═╝']
-            };
-            
-            let result = ['', '', '', '', '', ''];
-            
-            for (let i = 0; i < timeStr.length; i++) {
-                const char = timeStr[i];
-                if (digits[char]) {
-                    for (let j = 0; j < 6; j++) {
-                        result[j] += digits[char][j] + '  ';
-                    }
-                }
-            }
-            
-            return result.join('\n');
-        }
-        
         // Command definitions
         const commands = {
             'help': function() {
@@ -359,8 +245,6 @@
                        'decrypt [text] - Decrypt text\n' +
                        'soundplayer - Launch music player\n' +
                        'stop TICsoundplayer - Stop music player\n' +
-                       'matrix - Start Matrix code rain effect\n' +
-                       'stop matrix - Stop Matrix effect\n' +
                        'joke - Tell a random joke\n' +
                        'quote - Show a random quote\n' +
                        'fact - Display a random fact\n' +
@@ -379,7 +263,7 @@
             
             'dir': function() {
                 return 'Volume in drive C is SYSTEM\n' +
-                      'Volume Serial Number is 1A2B-3C4D\n\n' +
+                      'Volume Serial Number is 1A2B-3极C4D\n\n' +
                       'Directory of C:\\\n\n' +
                       '05/12/2023  12:00 AM    <DIR>          bin\n' +
                       '05/12/2023  12:00 AM    <DIR>          etc\n' +
@@ -387,7 +271,7 @@
                       '05/12/2023  12:00 AM    <DIR>          tmp\n' +
                       '05/12/2023  12:00 AM    <DIR>          usr\n' +
                       '05/12/2023  12:00 AM            12,345 system.log\n' +
-                      '05/12/2023  12:00 AM             9,876 config.ini\n' +
+                      '05/12/2023  极12:00 AM             9,876 config.ini\n' +
                       '05/12/2023  12:00 AM             5,678 secret.dat\n' +
                       '               3 File(s)         27,899 bytes\n' +
                       '               5 Dir(s)   1,024,000,000 bytes free';
@@ -426,7 +310,7 @@
             },
             
             'decrypt': function(args) {
-                if (!args) return 'Error: No text provided\nUsage: decrypt [text]';
+                if (!args) return 'Error: No text provided\nUsage: decrypt [极text]';
                 try {
                     return `Decrypted text: ${atob(args)}`;
                 } catch (e) {
@@ -436,7 +320,7 @@
             
             'soundplayer': function() {
                 if (isSoundPlayerActive) {
-                    return 'Sound player is already active. Use "stop TICsoundplayer"极 to close it.';
+                    return 'Sound player is already active. Use "stop TICsoundplayer" to close it.';
                 }
                 
                 isSoundPlayerActive = true;
@@ -486,7 +370,7 @@
                 
                 // Create player tip
                 const playerTip = document.createElement('div');
-                playerTip.className = 'player-tip';
+                playerTip.className = 'player极-tip';
                 playerTip.innerHTML = 'Type "stop TICsoundplayer" to close the player';
                 
                 // Assemble the player
@@ -518,8 +402,8 @@
                     clearInterval(spinnerInterval);
                     titleDiv.textContent = '♪ ' + originalTitle + ' ♪';
                     
-                    // Create and play audio
-                    globalAudio = new Audio('https://ia601302.us.archive.org/19/items/earthbound-ost_202201/151-%20Earthbound%20-%20Because%20I%20Love%20You.mp3');
+                    // Create and play audio - Using a GitHub-compatible source
+                    globalAudio = new Audio('https://raw.githubusercontent.com/your-username/your-repo/main/sound.mp3');
                     globalAudio.volume = 0.7;
                     
                     // Update controls text
@@ -568,17 +452,9 @@
                     } else {
                         return 'No active sound player to stop.';
                     }
-                } else if (args === 'matrix') {
-                    stopMatrixRain();
-                    return 'Matrix effect stopped.';
                 } else {
-                    return 'Usage: stop TICsoundplayer | stop matrix';
+                    return 'Usage: stop TICsoundplayer';
                 }
-            },
-            
-            'matrix': function() {
-                startMatrixRain();
-                return 'Matrix code rain effect started. Type "stop matrix" to end it.';
             },
             
             'joke': function() {
@@ -624,7 +500,7 @@
                     "The world's first website is still online: http://info.cern.ch",
                     "The average person blinks 15-20 times per minute, but only 5-10 times per minute when using a computer.",
                     "The QWERTY keyboard layout was designed to slow down typists to prevent jamming on old typewriters.",
-                    "The first email was sent in 1971 by极 Ray Tomlinson."
+                    "The first email was sent in 1971 by Ray Tomlinson."
                 ];
                 return facts[Math.floor(Math.random() * facts.length)];
             },
@@ -660,7 +536,7 @@
                     "My reply is no.",
                     "My sources say no.",
                     "Outlook not so good.",
-                    "极Very doubtful."
+                    "Very doubtful."
                 ];
                 return `🎱 ${responses[Math.floor(Math.random() * responses.length)]}`;
             },
@@ -680,12 +556,7 @@
             
             'time': function() {
                 const now = new Date();
-                const timeStr = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                const dateStr = now.toLocaleDateString();
-                
-                const timeArt = timeToAscii(timeStr);
-                
-                return `Current system time:\n${timeArt}\n\nCurrent date: ${dateStr}`;
+                return `Current system time: ${now.toLocaleTimeString()}\nCurrent date: ${now.toLocaleDateString()}`;
             },
             
             'emoji': function() {
@@ -723,7 +594,6 @@
                     soundPlayerElement.remove();
                     isSoundPlayerActive = false;
                 }
-                stopMatrixRain();
                 return 'Closing terminal is not permitted from this interface.';
             }
         };
@@ -758,7 +628,7 @@
         function animateResponse(response) {
             const responseElement = document.createElement('div');
             responseElement.className = 'response';
-            history.appendChild(responseElement);
+            history.appendChild(response极Element);
             
             const lines = response.split('\n');
             let currentLine = 0;
